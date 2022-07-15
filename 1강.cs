@@ -239,8 +239,46 @@ namespace ConsoleApp3
      
 3.4 배열    
      
+       --> 배열도 참조 형식에 속한다.
+    
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] products = new int[5];  // 배열 선언
+
+            for(int i = 0; i <products.Length; i++)
+            {
+                products[i] = i + 1;
+                Console.WriteLine(products[i]);
+            }
+        }
+    }
+}     
      
+--------------------------------------------------------
+  
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] products = new int[5] { 5, 6, 8, 8, 5 };    // int[] products = new int[] { 5, 6, 8, 8, 5 };
+
+            for(int i = 0; i <products.Length; i++)
+            {
+                Console.WriteLine(products[i]);
+            }
+        }
+    }
+}
      
-     
-     
-     
+  3.4.1 다차원 배열
+  
+     int [,] arr2 = new int[10, 5];
+     short [,,] arr3 = new short[3, 5, 2];
+
+  3.4.2 가변 배열
