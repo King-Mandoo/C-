@@ -75,3 +75,101 @@ namespace ConsoleApp3
         }
     }
 }
+
+
+  3.1.3 문자형 기본 타입
+  
+  문자형은 사칙연산(+, -, *, /)을 하려는 경우 컴파일할 때 오류가 발생한다.
+
+            char ch1 = 'a';
+            char ch2 = 'A';
+            char ch3 = ch1 + ch2;   // 오류 발생
+
+            Console.Write(ch3);
+  
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            char ch1 = '\t';
+            char ch2 = 'T';
+            char ch3 = '\n';
+            char ch4 = 'N';
+
+            Console.Write(ch1);
+            Console.Write(ch2);
+            Console.Write(ch3);
+            Console.WriteLine(ch4);  // Console.Write()에 '\n'을 덧붙여서 출력하는 것과 같다.
+            Console.WriteLine(ch2);
+        }
+    }
+}
+  
+-----------------
+  
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string text1 = "Hello, World!";
+            Console.WriteLine(text1);
+
+            string text2 = "\"Hello, World!\"";  //   \" 을 붙이면 " 또한 출력이 가능함
+            Console.WriteLine(text2);
+
+            Console.WriteLine(text1 + " <<>> " + text2);  // 이런식으로 string은 char형과는 달리 '+'연산을 지원한다. 이를 통해 문자열을 연결할 수 있다.
+        }
+    }
+}
+
+  
+  3.1.4 불린(boolean)형 기본 타입
+  
+      -->  C#에는 bool이라는 자료형이 있으며, 오직 true/false 값만을 담을 수 있다.
+    
+          영국의 수학자였던 죠지 불(George Boole, 1815-64)의 이름을 따서 만든 불린 데이터 형은 True/False 혹은 0/1 이라는 이진 값을 갖는다. 
+          1854년에 '사고의 법칙'이라는 책을 썼던 그는 AND, OR, NOT 이라는 이진 연산자를 사용해 이진 정보를 처리할 수 있는 모델을 만들 수 있도록 해주었는데, 
+          인간의 정신작용 또한 인식된 정보를 '참' 또는 '거짓'이라는 두 개의 환원된 정보로 처리하는 과정에서 이루어진다고 생각했다.
+            
+                                                                                                          출처: http://www.terms.co.kr/Boolean.htm
+ 
+
+            bool isNumeric = false;
+            Console.WriteLine(isNumeric); // False 출력
+
+                                                   
+
+                                                     C#은 정적 타입 언어이기에 자료형을 꼭 명시해야 한다.
+                                                       
+                                                       
+                                                       
+3.2 형변환                                                    
+                                                       
+  3.2.1 암시적 변환                                               
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
