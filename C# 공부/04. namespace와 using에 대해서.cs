@@ -5,7 +5,7 @@ class
 {
     //field                *필드: scope 내의 영역
     method                
-    {                    --> class의 필드 안에 method, 메소드의 필드 안에 ..(변수가 존재하겠지)
+    {                 
         //field
     }
 { 
@@ -18,7 +18,7 @@ namespace
    {
       method
       {
-         // ..
+         //field
       }
    }
 }
