@@ -59,7 +59,7 @@ namespace InterFace2
 
         public User(int HP, int MP)
         {
-            this.HP = HP;
+            this.HP = HP; 
             this.MP = MP;
         }
     }
