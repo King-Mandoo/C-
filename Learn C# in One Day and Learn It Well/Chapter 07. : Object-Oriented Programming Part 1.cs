@@ -152,6 +152,7 @@ class C_sharp_book
 }
   
            프로퍼티에 대하여 도움이 되는 블로그 : https://dev-junwoo.tistory.com/93#3.%20Private%20Set%20/%20init
+                                                 https://constructionsite.tistory.com/38
   
   
   
