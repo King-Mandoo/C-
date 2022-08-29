@@ -154,6 +154,59 @@ class C_sharp_book
            프로퍼티에 대하여 도움이 되는 블로그 : https://dev-junwoo.tistory.com/93#3.%20Private%20Set%20/%20init
                                                  https://constructionsite.tistory.com/38
   
+-------------------------------------
+   
+  🔵 Overloading
+  
+        --> 오버로딩은 하나의 메서드 이름으로 여러 메서드를 구현하는 것을 말한다.
+   
+          1. 함수의 이름을 같게 한다.
+          2. 각각 함수의 매개변수를 다르게 한다.
+  
+ using System;
+
+class calculator
+{
+    static public int add(int a, int b)
+    {
+        return a + b;
+    }
+    static public int add(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+    static public double add(double a, double b)
+    {
+        return a + b;
+    }
+
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        Console.WriteLine(calculator.add(5, 3));
+        Console.WriteLine(calculator.add(2, 1, 50));
+        Console.WriteLine(calculator.add(3.13, 4.52));
+    }
+} 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
