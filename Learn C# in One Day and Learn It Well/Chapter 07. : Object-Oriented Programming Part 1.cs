@@ -308,13 +308,54 @@ class C_sharp_book
 }
   
   
-  
-  
-  
-  
-  
-  
+  🔵 Constructors (생성자)
+       
+      --> It is the first method that is called whenever we create a object from our class. 
+          // 생성자는 우리가 클래스로부터 객체를 호출할 때 언제나 호출되는 첫 번째 메소드이다.
    
+            A constructor always has the same name as the class 
+            and does not return any value. We do not need to use the void keyword
+            when declaring a constructor.
+
+            Declaring a constructor is optional. If you do not declare your own
+            constructor, C# creates one for you automatically. The default constructor
+            simply initializes all the fields in the class to default values, which is
+            normally zero for numeral fields and empty string for string fields.
+
+--------------------------- 
+using System; 
+
+class SayHello
+{
+    public SayHello()
+    {
+        Console.WriteLine("Hello");
+    }
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        SayHello hello = new SayHello();   // "Hello" 출력
+    }
+---------------------------  
+
+using System; 
+
+class SayHello
+{
+    public SayHello(string MyName)
+    {
+        Console.WriteLine("Hello "+ MyName);
+    }
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        SayHello hello = new SayHello("선태욱");  // "Hello 선태욱" 출력
+    }
+}
   
   
   
