@@ -53,8 +53,7 @@
         One of the main reasons is that using properties gives us greater control
         over what rights other classes have when assessing these private fields.
         We’ll see how to do that later.  
-        // 프로퍼티를 사용하면 우리는 커다란 권한을 얻는다.
-           private 필드를 할당할 때 다른 클래스들이 가지는 권한을 말이다.
+        // 프로퍼티를 사용하면 우리는 커다란 권한을 얻는다.  private 필드를 할당할 때 다른 클래스들이 가지는 권한을 말이다.
   
 --------------------
 
@@ -192,24 +191,121 @@ class C_sharp_book
 } 
   
   
+  🔵 The ToString() method
   
+      -->  The ToString() method is a special method that returns a string that represents the current class.
+           // ToString() 메소드는 현재의 클래스를 대표하는 문자열을 반환하는 특별한 메소드이다.
+          
+    (* Object는 모든 클래스의 최상위 클래스이다. C#의 거의 모든 자료형은 System.Object로 부터 상속받는다.)
+                                  
+      ✅ C#에는 System 네임스페이스 안에  "public class Object"로 Object 클래스가 정의되어 있는데
+      
+          이 안에는 여러 메소드들이 있다.
+            
+            1  Equals(Object)
+
+            2	Equals(Object,Object)
+
+            3	Finalize()
+
+            4	GetHashCode()
+
+            5	GetType()
+
+            6	MemberwiseClone()
+
+            7	ReferenceEquals(Object,Object)
+
+            8	ToString()
+                                             이렇게 말이다.
+     
+          이 책에서는 그중 하나인 ToString() 메소드를 소개시켜준다.
+   
+                                                       도움되는 블로그: https://kangworld.tistory.com/190 
   
+       ✅ Override : 내가 이해한 바로는 부모 클래스로부터 상속받은 메소드를 다시 재정의하고 싶을 때
+                      오버라이드를 사용하는 것으로 보인다.
+      
+          *Override 뜻: to decide against or refuse to accept a previous decision, an order, a person, etc.:
+-------------------------           
+using System; 
+class Minus
+{
+    public int minus(int a, int b)
+    {
+        return a - b;
+    }
+}
+class Add
+{
+    public int add(int a, int b)
+    {
+        return a + b + c;
+    }
+    public override string ToString()       // 오버라이딩
+    {
+        return "This is Overriding";
+    }
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        object a = 5;
+        Console.WriteLine(a);
+        object b = "Hello";
+        Console.WriteLine(b);
+
+        Add add = new Add();
+        Minus minus = new Minus();
+
+        Console.WriteLine(add);                 // "This is Overriding" 출력
+        Console.WriteLine(add.ToString());      // "This is Overriding" 출력
+        Console.WriteLine(minus);               // "Minus" 출력
+        Console.WriteLine(minus.ToString());    // "Minus" 출력
+    }
+}
+-------------------------  
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ ✅ Overriding 한 다른 예시
+ 
+using System; 
+class Minus
+{
+    public virtual int minus(int a, int b)  // virtual 클래스는 자식 클래스에서 이 함수를 재정의하도록 허용해주는 키워드이다.
+    {
+        return a - b;
+    }
+}
+class Add : Minus
+{
+    public int c;
+    public override int minus(int a, int b)
+    {
+        return a - b + c;
+    }
+    public int add(int a, int b)
+    {
+        return a + b + c;
+    }
+    public override string ToString()
+    {
+        return "This is Overriding";
+    }
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        Add add = new Add();
+        Minus minus = new Minus();
+
+        add.c = 5;
+
+        Console.WriteLine(minus.minus(100, 88));   // 12 출력
+        Console.WriteLine(add.minus(100, 88));     // 17 출력
+    } 
+}
   
   
   
