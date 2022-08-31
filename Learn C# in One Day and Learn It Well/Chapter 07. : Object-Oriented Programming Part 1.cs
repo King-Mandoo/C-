@@ -356,6 +356,230 @@ class C_sharp_book
         SayHello hello = new SayHello("선태욱");  // "Hello 선태욱" 출력
     }
 }
-  
-  
-  
+----------------------------
+   
+  🔵 Static Keyword
+
+         Previously, we looked at how we can use the Staff class to create our
+         staff1, staff2 and staff3 objects. However, there are some classes or
+         class members that can be accessed without the need to create any objects.
+         These are known as static classes or class members and are declared using
+         the static keyword.
+            
+using System; 
+
+class ThisIsStatic
+{
+    public static int a;
+    public static int pro { get; set; }
+
+    public static double Func(double a, double b)
+    {
+        return a + b;
+    }
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        Console.WriteLine("a = " + ThisIsStatic.a);    // 0 출력
+        ThisIsStatic.a = 5;
+        Console.WriteLine("a = " + ThisIsStatic.a);    // 5출력
+
+        ThisIsStatic.pro = 3;
+        Console.WriteLine("pro = " + ThisIsStatic.pro);  // 3 출력 
+
+        Console.WriteLine("Func() = " + ThisIsStatic.Func(3.15, 152.35));  // 155.5 출력
+    }
+}
+
+
+   
+  🔵 Using Arrays and Lists
+     
+-------------     
+using System;
+
+class Array
+{
+    public static void A(int[] a)
+    {
+        for (int i = 0; i < a.Length; i++)
+        {
+            Console.Write(a[i]);
+        }
+    }
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        int[] a = { 1, 2, 3, 4, 5, 6, 7 };
+
+        Array.A(a);   // 1234567 출력
+    }
+}
+-------------     
+                   ✅ List는 크기를 정하지 않은 배열이라고 생각하면 된다. 동적으로 크기를 조절할 수 있다.
+using System; 
+
+class MyList
+{
+    public static void A(List<int> a)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            a.Add(i + 1);     //  i + 1값을 저장해준다.
+            Console.Write(a[i]);  // 12345678910 출력
+        }
+
+        foreach (int i in a)
+        {
+            Console.Write(i);  // 12345678910 출력
+        }
+    }
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        List<int> mylist = new List<int>();
+        MyList.A(mylist);
+    }
+}  
+
+----------------------
+ 
+using System;           ✅ 메소드의 반환값을 배열로 선언
+ 
+class MyArray
+{
+    public static int[] Array()
+    {
+        int [] array = new int[5];
+
+        for(int i = 0; i < array.Length; i++)
+        {
+            array[i] = Convert.ToInt32(Console.ReadLine());    // 배열에 값을 입력해줌
+        }
+
+        return array;  // 배열을 반환함
+    }
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        int[] aa = MyArray.Array();       // aa에 값을 전달함
+       
+        for(int i = 0; i < aa.Length;i++)
+        {
+            Console.WriteLine(aa[i]);   // 
+        }    
+    }
+}
+----------------------
+ 
+using System;           ✅ 리스트의 반환값을 배열로 선언
+
+class MyList
+{
+    public static List<int> List()      // 리스트를 반환해주는 함수 선언 
+    {
+        List<int> mylist = new List<int>();   
+        int input = 0;
+
+        for(int i = 0; i < 5; i++)
+        {
+            input = Convert.ToInt32(Console.ReadLine()); 
+            mylist.Add(input);
+        }
+
+        return mylist;
+    }
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        List<int> list = MyList.List();    // list에 mylist값 전달
+
+        for(int i = 0; i < list.Count; i++)
+        {
+            Console.WriteLine(list[i]);
+        }
+    }
+}
+     
+     
+
+  🔵 Using params keyword
+     
+       --> params 키워드를 사용하면 자신이 원하는 만큼, 개수의 제한 없이 매개변수를 전달 할 수 있다.
+     
+  -------------------------------------------------------------------------------------------------------------------------------   
+     ▼ C# params 규칙: 1. 선언부에서 params 키워드는 타입 맨 앞에 와야합니다.: 
+                       2. 가변인자 매개변수를 선언할때는 [] 를 이용해서 1차원 배열로 선언해야합니다.: 
+                       3. 데이터 타입이 애매할때는 모든 클래스의 최상위 클래스인 object 클래스 배열로 해도 됩니다. 
+                                           
+                                              출처: https://blockdmask.tistory.com/317 [개발자 지망생:티스토리]
+   -------------------------------------------------------------------------------------------------------------------------------
+           
+      Next, let’s explore the params keyword. The params keyword is useful
+      when we do not know the number of arguments a method has. For instance,
+      we may have a method that prints a series of names, but we do not know
+      how many names there are in advance. In cases like this, we can use an
+      array as the parameter and add the params keyword in front of it.
+     
+---------------
+using System; 
+
+class ParamsFunc
+{
+    public static void PrintNames(params string[] names)  // params 키워드를 사용하여 string형의 이름을 전달받음
+    {
+        for (int i = 0; i < names.Length; i++)
+        {
+            Console.Write(names[i] + " ");
+        }
+        Console.WriteLine();
+    }
+
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        ParamsFunc.PrintNames("선태욱");
+        ParamsFunc.PrintNames("선태욱", "이병건");
+        ParamsFunc.PrintNames("선태욱", "이병건", "주호민");
+    }
+}
+---------------
+
+               ✅ object 클래스를 활
+using System; 
+
+class ParamsFunc
+{
+    public static void PrintFile(params object[] file)
+    {
+        for (int i = 0; i < file.Length; i++)
+        {
+            Console.Write(file[i] + " ");
+        }
+        Console.WriteLine();
+    }
+
+}
+class C_sharp_book
+{
+    public static void Main()
+    {
+        ParamsFunc.PrintFile("선태욱");
+        ParamsFunc.PrintFile("선태욱", 171.3);
+        ParamsFunc.PrintFile("선태욱", 171.3, 68);
+    }
+}
+     
+     
