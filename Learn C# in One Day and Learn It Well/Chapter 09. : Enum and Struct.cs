@@ -170,4 +170,4 @@ class C_sharp_book
         myClass.a = 500;
     }
 }
-
+                                              읽어볼만한 블로그: https://kukuta.tistory.com/385
