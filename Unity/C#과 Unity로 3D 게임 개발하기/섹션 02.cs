@@ -140,7 +140,7 @@ public class Dropper : MonoBehaviour
         renderer = GetComponent<MeshRenderer>(); // Caching  
         renderer.enabled = false;
 
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();  // Generalization (일반화)
         rigidbody.useGravity = false;
     }
 
