@@ -155,4 +155,30 @@ public class Dropper : MonoBehaviour
     }
 }
 
+🟢 태그 사용하기
 
+public class Scorer : MonoBehaviour
+{
+    int hits = 0;
+    private void OnCollisionEnter(Collision other) 
+    {
+        if(other.gameObject.tag != "Hit") // 만약 플레이어 오브젝트와 충돌한 오브젝트의 태그가 Hit가 아니라면
+        {
+            hits++;
+            Debug.Log("You've bumped into a thing this many times: " + hits);  // hits 값 출력
+        }
+    }
+}
+----------------------------------------------------------------
+
+public class ObjectHit : MonoBehaviour
+{
+    private void OnCollisionEnter(Collision other) // 물체간의 충돌이 처음 일어났을 경우 호출, 
+    {
+        if(other.gameObject.tag == "Player") // 만약 오브젝트와 플레이어 태그를 가진 오브젝트가 부딪칠 경우
+        {
+            GetComponent<MeshRenderer>().material.color = Color.red; // 빨간색으로 변경
+            gameObject.tag = "Hit"; // 그리고 이 오브젝트의 태그를 "Hit"로 변경
+        }
+    }
+}
